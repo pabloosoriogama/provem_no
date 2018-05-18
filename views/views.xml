@@ -1,0 +1,74 @@
+<openerp>
+  <data>
+  
+      <record id="view_hrcontract_form_inherit" model="ir.ui.view">
+            <field name="name">view.hrcontract.form.add.text.field</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='information']/group/group/field[@name='advantages']" position="after">
+                    <field name="tiempo_determinado"/>
+                    <field name="period_salary"/>
+                    <field name="amount_to_text"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='other']/group/group/field[@name='trial_date_end']" position="after">
+                    <field name="x_localidad"/>
+                    <field name="fecha_firma"/>
+                </xpath>
+
+            </field>
+    </record>
+    <record id="view_hremployee_form_inherit" model="ir.ui.view">
+            <field name="name">view.hremployee.form.add.text.field</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/group/group/field[@name='work_phone']" position="after">
+                    <field name="edad"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='identification_id']" position="after">
+                    <field name="x_nss"/>
+                </xpath>
+                <xpath expr="//field[@name='address_home_id']" position="after">
+                    <field name="hcalle"/>
+                    <field name="hnext"/>
+                    <field name="hnint"/>
+                    <field name="hcolonia"/>
+                    <field name="hciudad"/>
+                    <field name="hestado"/>
+                    <field name="hcp"/>
+                </xpath>
+
+
+            </field>
+    </record>
+    <record id="new_field_account" model="ir.ui.view">
+            <field name="name">account.form.add.text.field</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//group[@name='timesheet']" position="inside">
+                     <field name="account_id" />
+              </xpath>
+            </field>
+        </record>
+         <record id="new_field_nacionality" model="ir.ui.view">
+            <field name="name">nacionality.form.add.text.field</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='country_id']" position="after">
+                     <field name="x_nationality" />
+              </xpath>
+              <xpath expr="//field[@name='passport_id']" position="after">
+                     <field name="rfc_id" />
+                     <field name="curp_id" />
+              </xpath>
+                <xpath expr="//field[@name='country_id']" position="attributes">
+                    <attribute name="string">País</attribute>
+                </xpath>
+            </field>
+        </record>
+
+  </data>
+</openerp>
